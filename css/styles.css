@@ -322,7 +322,6 @@ section {
     background: var(--secondary-color);
 }
 
-/* Skills Section */
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -389,21 +388,19 @@ section {
     content: '';
     position: absolute;
     top: 0;
-    left: 0; /* Ensure it starts from the left */
+    left: 0;
     height: 100%;
-    width: 0; /* Initial width, will be transitioned */
+    width: 0; 
     border-radius: 4px;
-    transition: width 1.5s ease-in-out; /* Transition for the width property */
-    background: var(--skill-bar-color, limegreen); /* Use CSS variable for background, with fallback */
+    transition: width 1.5s ease-in-out; 
+    background: var(--skill-bar-color, limegreen); 
 }
 
-/* Apply width when .in-view class is present */
 .skill-level.in-view::after {
-    width: var(--level, 50%); /* Use CSS variable for width, with fallback */
+    width: var(--level, 50%);
 }
 
 
-/* Contact Section */
 .contact-container {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -485,7 +482,6 @@ social-links a:hover {
     box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.2);
 }
 
-/* Footer */
 footer {
     background: var(--primary-color);
     color: var(--light-text);
@@ -493,7 +489,6 @@ footer {
     padding: 30px 20px;
 }
 
-/* Responsive Styles */
 @media (max-width: 992px) {
     .contact-container {
         grid-template-columns: 1fr;
