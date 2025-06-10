@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('nav ul');
     
@@ -7,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('active');
     });
     
-    // Close menu when clicking outside
     document.addEventListener('click', function(event) {
         const isClickInsideNav = navMenu.contains(event.target);
         const isClickOnToggle = menuToggle.contains(event.target);
@@ -17,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -38,14 +35,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Enhanced skill levels animation
     const skillLevels = document.querySelectorAll('.skill-level');
     
     skillLevels.forEach(skill => {
-        const level = parseInt(skill.getAttribute('data-level')); // Convert level to integer
+        const level = parseInt(skill.getAttribute('data-level'));
         skill.style.setProperty('--level', level + '%');
 
-        // Determine color based on skill level and set CSS variable
         let barColor;
         if (level < 25) {
             barColor = '#f44336'; // Red
@@ -56,15 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         skill.style.setProperty('--skill-bar-color', barColor);
 
-        // The classList.add for level-low, level-medium, etc. are no longer needed for color
-        // but might be used for other styling, so we can leave them or remove them.
-        // For now, let's remove them to make it clear color is handled by --skill-bar-color.
-        skill.classList.remove('level-low', 'level-medium', 'level-high', 'level-expert'); // Clean up old classes
-        // Re-add general classes if they were meant for something else, or adjust as needed.
-        // For this specific request, we focus on color via JS.
+        
+        skill.classList.remove('level-low', 'level-medium', 'level-high', 'level-expert');
     });
     
-    // Animate elements when they come into view
     const animateOnScroll = (elements, callback) => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -80,33 +70,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
     
-    // Animate skill bars when they come into view
     animateOnScroll(skillLevels, (element) => {
         setTimeout(() => {
-            // Add a class to trigger transition via CSS
             element.classList.add('in-view');
         }, 300);
     });
     
-    // Project navigation - update project card links
     const projectCards = document.querySelectorAll('.project-card');
     
     if (projectCards.length > 0) {
-        // Project data mapping
         const projectData = [
             { id: 'ecommerce', title: 'E-Commerce Website' },
             { id: 'portfolio', title: 'Portfolio Template' },
             { id: 'weather', title: 'Weather App' }
         ];
         
-        // Update project links
         projectCards.forEach((card, index) => {
             if (index < projectData.length) {
                 const viewButton = card.querySelector('.btn-small');
                 if (viewButton) {
                     viewButton.href = `project-${projectData[index].id}.html`;
                     
-                    // Add click event to navigate to project page
                     viewButton.addEventListener('click', function(e) {
                         e.preventDefault();
                         window.location.href = this.href;
@@ -115,22 +99,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    
-    // Form submission
+    /*
     const contactForm = document.querySelector('.contact-form');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            // For this example, we'll just log it to the console
+           
             console.log({
                 name,
                 email,
@@ -138,15 +118,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 message
             });
             
-            // Show success message (in a real application)
             alert('Thank you for your message! I will get back to you soon.');
             
-            // Reset form
             contactForm.reset();
         });
     }
+        */
     
-    // Parallax effect for shapes
     const shapes = document.querySelectorAll('.shape');
     
     if (shapes.length > 0) {
@@ -164,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Project cards hover effect
     if (projectCards.length > 0) {
         projectCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
