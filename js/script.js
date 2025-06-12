@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => { // permet  de sélectionner tous les liens qui commencent par #
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const skillLevels = document.querySelectorAll('.skill-level');
     
-    skillLevels.forEach(skill => {
+    skillLevels.forEach(skill => { // permet de parcourir tous les éléments avec la classe .skill-level et de modifier leur style
         const level = parseInt(skill.getAttribute('data-level'));
         skill.style.setProperty('--level', level + '%');
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const projectData = [
             { id: 'ecommerce', title: 'E-Commerce Website' },
             { id: 'portfolio', title: 'Portfolio Template' },
-            { id: 'weather', title: 'Weather App' }
+            { id: 'deezer', title: 'Deezer presentation' }
         ];
         
         projectCards.forEach((card, index) => {
@@ -99,36 +99,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    /*
-    const contactForm = document.querySelector('.contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-           
-            console.log({
-                name,
-                email,
-                subject,
-                message
-            });
-            
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            contactForm.reset();
-        });
-    }
-        */
+   
     
     const shapes = document.querySelectorAll('.shape');
     
     if (shapes.length > 0) {
-        window.addEventListener('mousemove', function(e) {
+        window.addEventListener('mousemove', function(e) { // permet de détecter le mouvement de la souris afin de déplacer les formes
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             
